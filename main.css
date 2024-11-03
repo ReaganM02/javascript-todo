@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Gray shades */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* Cyan shades */
+  --cyan-50: #ecfeff;
+  --cyan-100: #cffafe;
+  --cyan-200: #a5f3fc;
+  --cyan-300: #67e8f9;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-600: #0891b2;
+  --cyan-700: #0e7490;
+  --cyan-800: #155e75;
+  --cyan-900: #164e63;
+
+  /* Red shades */
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--gray-100);
+  margin: 0;
+  color: var(--gray-600);
+}
+
+
+.todo-main-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.todo-side-panel {
+  position: fixed;
+  width: 400px;
+  height: 100vh;
+  background-color: var(--gray-200);
+}
+
+.todo-container {
+  margin-left: 400px;
+  padding: 20px;
+  width: 100%;
+}
+
+form {
+  padding: 25px;
+}
+
+#todo-content {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  border: 0;
+  box-shadow: 0 0 0 1px var(--gray-300);
+  border-radius: 4px;
+  padding: 6px;
+  min-height: 100px;
+  outline: none;
+}
+
+#todo-content:focus {
+  box-shadow: 0 0 0 1px var(--gray-400);
+}
+
+.add-todo-btn {
+  margin-top: 20px;
+  background-color: var(--cyan-500);
+  border: 0;
+  color: #fff;
+  box-shadow: 0 0 10px 0 #c4c4c4;
+  padding: 10px 25px;
+  border-radius: 20rem;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  float: right;
+  cursor: pointer;
+  transition:  all ease 0.2s;
+}
+
+.add-todo-btn:hover {
+  background-color: var(--cyan-700);
+}
+
+h2 {
+  font-size: 18px;
+  color: var(--gray-700);
+  margin: 0;
+}
+
+.toaster{
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 50%;
+  background-color: #fff;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--gray-600);
+  box-shadow: 0 0 10px var(--gray-300);
+  border: 1px solid transparent;
+}
+
+.toaster.error {
+  background-color: var(--red-50);
+  border: 1px solid var(--red-200)
+}
+
+.toaster.success {
+  background-color: var(--cyan-100);
+  border: 1px solid var(--cyan-300)
+}
+
+#todo-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: baseline;
+}
+
+.todo-item {
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--gray-200);
+  color: var(--gray-600);
+  position: relative;
+}
+
+.todo-actions {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.todo-actions button {
+  border: 0;
+  padding: 7px 15px;
+  font-size: 11px;
+  color: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.todo-actions .edit {
+  background-color: var(--cyan-400);
+}
+
+.todo-actions .delete {
+  background-color: var(--red-400);
+}
+
+.todo-item-content {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.todo-item.editing .todo-item-content,
+.todo-item.editing .edit,
+.todo-item .todo-item-editing,
+.todo-item .cancel,
+.todo-item .save {
+  display: none;
+}
+
+.todo-item.editing .todo-item-editing {
+  display: block;
+}
+
+.todo-item .cancel {
+  background-color: var(--gray-400);
+}
+
+.todo-item.editing .save {
+  display: block;
+  background-color: var(--cyan-500);
+}
+
+.todo-item.editing .cancel{
+  display: block;
+}
+
+.todo-item-editing {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  border: 0;
+  box-shadow: 0 0 0 1px var(--gray-300);
+  border-radius: 4px;
+  padding: 6px;
+  outline: none;  
+  margin-bottom: 10px;
+}
